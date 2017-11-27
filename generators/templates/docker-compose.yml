@@ -1,0 +1,16 @@
+version: '2.1'
+# services:
+#   your-microservice:
+#     image: yourImage
+#     expose:
+#       - "port"
+
+  <%= name %>:
+    image: <%= company %>/<%= name %>:<%= version %>
+    expose:
+      - "<%= port %>"
+    ports:
+      - "<%= port %>:<%= port %>"
+    # links:
+    #   - your-microservice
+    

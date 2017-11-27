@@ -1,0 +1,69 @@
+swagger: '2.0'
+info:
+  description: <%= description %>
+  version: <%= version %>
+  title: <%= name %>
+  contact: <%= author %>
+    email: <%= email %>
+  license:
+    name: <%= license %>
+    url: ''
+basePath: /
+tags:
+  - name: applicationInfo
+    description: Information about the application
+schemes:
+  - http
+paths:
+  /:
+    get:
+      tags:
+        - applicationInfo
+      summary: Get application and version info
+      description: ''
+      operationId: getApplicationInfo
+      produces:
+        - application/text
+      responses:
+        '200':
+          description: succes
+          schema:
+            type: string
+  /swagger:
+    get:
+      tags:
+        - applicationInfo
+      summary: Swagger definition of the service
+      description: >-
+        Returns the swagger file for the service, which specifies all its
+        capabilities
+      operationId: getSwagger
+      produces:
+        - application/yaml
+      responses:
+        '200':
+          description: succes
+
+          
+definitions:
+  Version:
+    type: object
+    properties:
+      versionNumber:
+        type: string
+      documentId:
+        type: string
+  DocumentContainer:
+    type: object
+    properties:
+      title:
+        type: string
+      containerId:
+        type: string
+      containerNumber:
+        type: string
+      versions:
+        type: array
+        items:
+          $ref: '#/definitions/Version'
+
