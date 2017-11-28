@@ -1,15 +1,11 @@
 # Libs
-express           = require('express')
-app               = express()
-http              = require('http').Server(app)
-fs                = require('fs')
-config            = require('config')
-Weaver            = require('weaver-sdk')
-
-
-
-
-log = config.get('<%= name %>.log')
+express  = require('express')
+app      = express()
+http     = require('http').Server(app)
+fs       = require('fs')
+config   = require('config')
+Weaver   = require('weaver-sdk')
+logger   = require('./util/logger')
 
 info = JSON.parse(fs.readFileSync('./package.json', 'utf8'))
 
@@ -18,7 +14,7 @@ weaver = new Weaver()
 try
   weaver.connect(config.get('weaver'))
 catch error
-  console.log error
+  logger.error error
   
 
 # Index page
@@ -26,6 +22,7 @@ app.get('/', (req, res) ->
   res.status(200).send("#{info.name} #{info.version}")
 )
 
+# Swagger page
 app.get('/+swagger', (req, res) ->
   res.sendFile('swagger.yaml', {root: './static/'})
 )
@@ -33,7 +30,8 @@ app.get('/+swagger', (req, res) ->
 # Run
 port = process.env.PORT or config.get('<%= name %>.port')
 http.listen(port, ->
-  console.log "#{info.name} #{info.version} running on port #{port}"
-  console.log "Connecting to weaver endpoint: #{config.get('weaver')}"
+  logger.info "#{info.name} #{info.version} running on port #{port}"
+  logger.info "Connecting to weaver endpoint: #{config.get('weaver')}"
+  return
 )
 

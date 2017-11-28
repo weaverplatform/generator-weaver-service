@@ -1,5 +1,6 @@
 var Generator = require('yeoman-generator')
-const path = require('path')
+const path    = require('path')
+const mkdirp  = require('mkdirp')
 
 module.exports = class extends Generator {
     
@@ -81,6 +82,9 @@ module.exports = class extends Generator {
             this.destinationPath(this.props.name),
             this.props
         )
+        console.log(this.destinationPath());
+        mkdirp(`${this.destinationPath(this.props.name)}/data/`)
+        mkdirp(`${this.destinationPath(this.props.name)}/logs/`)
     }
     
     installDevDependencies() {
@@ -92,7 +96,7 @@ module.exports = class extends Generator {
     
     
     installDependencies() {
-      this.npmInstall(['coffee','express','weaver-sdk','config'],
+      this.npmInstall(['coffee','express','weaver-sdk','config','winston', 'winston-daily-rotate-file', 'moment'],
         { 'save': true },
         {cwd: this.destinationPath(this.props.name)}
       )
