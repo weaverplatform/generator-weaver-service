@@ -2,8 +2,7 @@ var Generator = require('yeoman-generator')
 const path = require('path')
 
 module.exports = class extends Generator {
-  
-  
+    
   constructor(args, opts) {
     
     super(args, opts);
@@ -55,6 +54,18 @@ module.exports = class extends Generator {
             required: true
         }, {
             type: 'input',
+            name: 'ipWeaver',
+            message: 'IP of Weaver Server',
+            default: 'localhost',
+            required: true
+        },{
+            type: 'input',
+            name: 'portWeaver',
+            message: 'Port number of Weaver Server',
+            default: 9487,
+            required: true
+        },{
+            type: 'input',
             name: 'license',
             message: 'License',
             default: 'GPL-3.0'
@@ -74,18 +85,21 @@ module.exports = class extends Generator {
     
     installDevDependencies() {
       this.npmInstall(['chai','chai-as-promised','coffee-script','mocha','npm-watch'],
-      { 'save-dev': true },
-      {cwd: this.destinationPath(this.props.name)}
-    )
+        { 'save-dev': true },
+        {cwd: this.destinationPath(this.props.name)}
+      )
     }
     
     
     installDependencies() {
       this.npmInstall(['coffee','express','weaver-sdk','config'],
-      { 'save': true },
-      {cwd: this.destinationPath(this.props.name)}
-    )
+        { 'save': true },
+        {cwd: this.destinationPath(this.props.name)}
+      )
     }
-
-  
+    
+    end(){
+      this.log(`More info at ${this.props.name}/README.md`)
+      this.log(`The new ${this.props.name} is ready to add more service, enjoy!`)
+    }
 };

@@ -7,6 +7,6 @@ module.exports =
     # yourServiceName: 'http://ipOfYourService:portOfYourService'
     
  
-  weaver: 'http://localhost:9487'
+  weaver: 'http://<%= ipWeaver %>:<%= portWeaver %>'
 
   dataDir: "./data/"
