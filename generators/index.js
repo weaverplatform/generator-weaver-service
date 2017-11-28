@@ -31,7 +31,7 @@ module.exports = class extends Generator {
             type: 'input',
             name: 'description',
             message: 'Description',
-            default: 'Descriptoin for this awesome weaver-service'
+            default: 'Description for this awesome weaver-service'
         }, {
             type: 'input',
             name: 'author',
@@ -41,12 +41,13 @@ module.exports = class extends Generator {
             type: 'input',
             name: 'email',
             message: 'Author email',
-            default: ''
+            default: 'yourMail@mail.no',
+            required: true
         }, {
             type: 'input',
             name: 'company',
             message: 'Company or organization name',
-            default: 'sysunite'
+            default: ''
         }, {
             type: 'Number',
             name: 'port',

@@ -3,11 +3,11 @@ info:
   description: <%= description %>
   version: <%= version %>
   title: <%= name %>
-  contact: <%= author %>
+  contact:
     email: <%= email %>
   license:
     name: <%= license %>
-    url: ''
+    url: 'https://opensource.org/licenses/<%= license %>'
 basePath: /
 tags:
   - name: applicationInfo

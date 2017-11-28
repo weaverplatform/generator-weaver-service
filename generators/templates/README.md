@@ -35,3 +35,9 @@ http://localhost:<%= port %>
 And the swagger definition at:
 
 http://localhost:<%= port %>/swagger
+
+### Weaver
+
+You'll need to add this line to the weaver config file at **pluggableServices** section:
+    
+'<%= name %>': 'http://localhost:<%= port %>'
