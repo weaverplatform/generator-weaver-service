@@ -1,7 +1,7 @@
 {
-  "name": "generator-test",
-  "version": "1.0.0",
-  "description": "Yes this is the 100 test xD",
+  "name": "generator-weaver-service",
+  "version": "0.0.1",
+  "description": "Scaffolding for Weaver Service",
   "main": "index.js",
   "files": [
     "generators"
@@ -12,8 +12,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Carlos Villanueva",
+  "license": "GPL-3.0",
   "dependencies": {
     "yeoman-generator": "^2.0.1"
   }

@@ -57,7 +57,7 @@ module.exports = class extends Generator {
             type: 'input',
             name: 'license',
             message: 'License',
-            default: 'ISC'
+            default: 'GPL-3.0'
         }]).then((answers) => {
             this.props = answers
             done();
@@ -73,12 +73,18 @@ module.exports = class extends Generator {
     }
     
     installDevDependencies() {
-      this.npmInstall(['chai','chai-as-promised','coffee-script','mocha','npm-watch'], { 'save-dev': true })
+      this.npmInstall(['chai','chai-as-promised','coffee-script','mocha','npm-watch'],
+      { 'save-dev': true },
+      {cwd: this.destinationPath(this.props.name)}
+    )
     }
     
     
     installDependencies() {
-      this.npmInstall(['coffee','express','weaver-sdk','config'], { 'dev': true })
+      this.npmInstall(['coffee','express','weaver-sdk','config'],
+      { 'save': true },
+      {cwd: this.destinationPath(this.props.name)}
+    )
     }
 
   
