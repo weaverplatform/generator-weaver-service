@@ -30,6 +30,12 @@ app.get('/+swagger', (req, res) ->
 # Run
 port = process.env.PORT or config.get('<%= name %>.port')
 http.listen(port, ->
+  logger.info "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⣠⠞⠀⠀⠀⠀⠀"
+  logger.info "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣶⣶⣶⣶⣦⣤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⠏⣀⣤⣶⣿⠋⠀⠀⠀⠀⠀⠀"
+  logger.info "⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀⠉⢿⣶⣶⣤⣀⣀⣀⣀⣀⣀⣠⣤⣶⣿⣿⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀"
+  logger.info "⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀⠉⠉⠉⠉⠉⠀⠀⠁⠉⠉⠛⠛⠿⠿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+  logger.info "⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⠈⠉⠙⠛⠿⣿⣿⣿⣿⣿⣿⡀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+  logger.info "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠙⠛⠻⠿⠟⠛⠛⠛⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   "
   logger.info "#{info.name} #{info.version} running on port #{port}"
   logger.info "Connecting to weaver endpoint: #{config.get('weaver')}"
   return
