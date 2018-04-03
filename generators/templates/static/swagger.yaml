@@ -72,7 +72,7 @@ parameters:
     name: name
     in: query
     description: Just a dummy query parameter
-    required: false
+    required: false   # inside weaver as plugin, setting this to true forces to check if the parameters are in the request or not
     type: string
 
 
