@@ -24,11 +24,32 @@ paths:
       operationId: getApplicationInfo
       produces:
         - application/text
+      parameters:
+        - $ref: '#/parameters/reuseParam'
       responses:
         '200':
           description: succes
           schema:
             type: string
+
+
+  /echo:
+    post:
+      tags:
+        - echo
+      summary: Perform an echo via post
+      description: ''
+      operationId: postEcho
+      produces:
+        - application/text
+      parameters:
+        - $ref: '#/parameters/reuseParam' 
+      responses:
+        "200":
+          description: success
+          schema:
+            type: string
+
   /swagger:
     get:
       tags:
@@ -45,6 +66,16 @@ paths:
           description: succes
 
           
+# Explample of reusing parameters on swagger 2.0
+parameters:
+  reuseParam:      # Can be referenced via '#/parameters/reuseParam'
+    name: name
+    in: query
+    description: Just a dummy query parameter
+    required: false
+    type: string
+
+
 definitions:
   Version:
     type: object

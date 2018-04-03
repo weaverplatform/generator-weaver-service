@@ -19,12 +19,17 @@ catch error
 
 # Index page
 app.get('/', (req, res) ->
-  res.status(200).send("#{info.name} #{info.version}")
+	res.status(200).send("#{info.name} #{info.version} #{if req.query.name? then req.query.name else ' '}")
 )
 
 # Swagger page
 app.get('/+swagger', (req, res) ->
   res.sendFile('swagger.yaml', {root: './static/'})
+)
+
+# echo POST endpoint, just to have an example of reusing params at swagger file
+app.post('/+echo', (req, res) ->
+	res.status(200).send("Hi. #{if req.query.name? then req.query.name else 'provide a name as query param'}")  
 )
 
 # Run
