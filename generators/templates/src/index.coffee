@@ -17,14 +17,31 @@ catch error
   logger.error error
   
 
-# Index page
+# Util
+ensureParameters = (req, res, parameters...) ->
+  for p in parameters
+    if !req.query[p]?
+      res.status(400).send("Parameter #{p} required")
+      return false
+  true
+
+# Index page displaying info about the service. The optional req query param is just for example purposes
 app.get('/', (req, res) ->
-  res.status(200).send("#{info.name} #{info.version}")
+	res.status(200).send("#{info.name} #{info.version} #{if req.query.name? then req.query.name else ' '}")
 )
 
 # Swagger page
 app.get('/+swagger', (req, res) ->
   res.sendFile('swagger.yaml', {root: './static/'})
+)
+
+# echo POST endpoint, just to have an example of reusing params at swagger file.
+# Note that checking here the parameters would be working at weaver-plugin and 
+# on a http request. Setting this required at swagger 'parameters/required' just
+# affects the checking when is consumed as weaver-plugin
+app.post('/+echo', (req, res) ->
+  if ensureParameters(req, res, 'name')
+    res.send("Hi, #{req.query.name}")
 )
 
 # Run
