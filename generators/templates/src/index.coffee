@@ -17,7 +17,7 @@ catch error
   logger.error error
   
 
-# Index page
+# Index page displaying info about the service. The optional req query param is just for example purposes
 app.get('/', (req, res) ->
 	res.status(200).send("#{info.name} #{info.version} #{if req.query.name? then req.query.name else ' '}")
 )
