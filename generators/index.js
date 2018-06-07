@@ -46,8 +46,8 @@ module.exports = class extends Generator {
         }, {
             type: 'input',
             name: 'company',
-            message: 'Company or organization name',
-            default: ''
+            message: 'Company or organization name (no spaces or uppercase)',
+            required: true,
         }, {
             type: 'Number',
             name: 'port',
