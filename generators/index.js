@@ -97,7 +97,7 @@ module.exports = class extends Generator {
     
     
     installDependencies() {
-      this.npmInstall(['coffee','express','weaver-sdk','config','winston', 'winston-daily-rotate-file', 'moment'],
+      this.npmInstall(['coffee','express','weaver-sdk','config','winston@2.2.0', 'winston-daily-rotate-file@1.4.6', 'moment'],
         { 'save': true },
         {cwd: this.destinationPath(this.props.name)}
       )
