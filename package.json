@@ -1,6 +1,6 @@
 {
   "name": "generator-weaver-service",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Scaffolding for Weaver Service",
   "main": "index.js",
   "files": [
